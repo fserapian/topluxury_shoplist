@@ -1,0 +1,16 @@
+<div class="home-header px-3 pb-md-4 mx-auto">
+    <h1 class="display-4">Our Products</h1>
+    <p class="lead">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Sed ab, consectetur necessitatibus numquam
+        a ullam
+        fugiat magnam eos optio corrupti.</p>
+</div>
+<!-- *************** -->
+<div class="row">
+    <app-product class="col-md-4" *ngFor="let product of products" [product]="product">
+    </app-product>
+</div>
+
+
+<!-- <input type="text" [value]="email" (keyup.enter)="email=$event.target.value; onSave();"> -->
+<input type="text" [(ngModel)]="title">
+{{ title | uppercase }}
