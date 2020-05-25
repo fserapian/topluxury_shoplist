@@ -1,0 +1,12 @@
+.list-img {
+    width: 2rem;
+    height: 2rem;
+    margin-right: 0.6rem;
+    border-radius: 3px;
+}
+
+.del-btn {
+    border: none;
+    outline: none;
+    color: #777;
+}

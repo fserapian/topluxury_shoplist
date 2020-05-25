@@ -29,7 +29,7 @@ export class LoginComponent implements OnInit {
         type: 'success'
       });
 
-      this.router.navigate(['/']);
+      this.router.navigate(['/home']);
     } else {
 
       this.flashMessage.showFlashMessage({

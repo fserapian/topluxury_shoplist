@@ -1,16 +1,30 @@
 <div class="home-header px-3 pb-md-4 mx-auto">
-    <h1 class="display-4">Our Products</h1>
-    <p class="lead">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Sed ab, consectetur necessitatibus numquam
-        a ullam
-        fugiat magnam eos optio corrupti.</p>
+  <h1 class="display-4">Our products</h1>
+  <p class="lead">
+    Topluxury shoplist is lorem ipsum dolor sit amet consectetur, adipisicing
+    elit. Sed ab, consectetur necessitatibus numquam a ullam fugiat magnam eos
+    optio corrupti.
+  </p>
 </div>
 <!-- *************** -->
 <div class="row">
-    <app-product class="col-md-4" *ngFor="let product of products" [product]="product">
-    </app-product>
+  <app-product
+    class="col-md-4"
+    *ngFor="let product of products"
+    [product]="product"
+    (addToBagEvent)="addToBag($event)"
+  ></app-product>
 </div>
 
-
 <!-- <input type="text" [value]="email" (keyup.enter)="email=$event.target.value; onSave();"> -->
-<input type="text" [(ngModel)]="title">
-{{ title | uppercase }}
+<!-- <input type="text" [(ngModel)]="title">
+{{ title | uppercase }} -->
+
+<ul>
+  <li *ngFor="let item of bag">
+    {{ item.name }}
+  </li>
+</ul>
+
+<button (click)="showItems()">show what in the bag</button>
+<button (click)="sendMessage()">Transfer</button>

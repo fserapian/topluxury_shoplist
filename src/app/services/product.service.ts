@@ -1,15 +1,17 @@
 import { Injectable } from '@angular/core';
 import { Product } from '../models/product.model';
 import { Observable, of } from 'rxjs';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 
 @Injectable({
   providedIn: 'root'
 })
 export class ProductService {
+  // productsUrl = 'http://localhost:8082/BijouxAPI/ressources/MyService/produits';
+
   products: Product[];
 
-
-  constructor() {
+  constructor(private http: HttpClient) {
     this.products = [
       {
         id: '1',
@@ -57,7 +59,9 @@ export class ProductService {
   }
 
   getProducts(): Observable<Product[]> {
+    // return this.http.get<Product[]>(this.productsUrl);
+
     return of(this.products);
   }
-  
+
 }
