@@ -19,6 +19,7 @@ import { ProductService } from './services/product.service';
 import { BagService } from './services/bag.service';
 import { WelcomeComponent } from './components/welcome/welcome.component';
 import { PageNotFoundComponent } from './components/page-not-found/page-not-found.component';
+import { AuthGuard } from './services/auth-guard.service';
 
 @NgModule({
   declarations: [
@@ -41,7 +42,8 @@ import { PageNotFoundComponent } from './components/page-not-found/page-not-foun
   ],
   providers: [
     ProductService,
-    BagService
+    BagService,
+    AuthGuard
   ],
   bootstrap: [AppComponent]
 })

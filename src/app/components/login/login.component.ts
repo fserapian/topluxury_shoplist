@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { NgFlashMessageService } from 'ng-flash-messages';
+import { AuthService } from 'src/app/services/auth.service';
 
 @Component({
   selector: 'app-login',
@@ -13,7 +14,8 @@ export class LoginComponent implements OnInit {
 
   constructor(
     private router: Router,
-    private flashMessage: NgFlashMessageService
+    private flashMessage: NgFlashMessageService,
+    private authService: AuthService
   ) { }
 
   ngOnInit() {
@@ -29,6 +31,7 @@ export class LoginComponent implements OnInit {
         type: 'success'
       });
 
+      this.authService.login();
       this.router.navigate(['/home']);
     } else {
 
