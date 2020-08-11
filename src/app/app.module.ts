@@ -18,7 +18,6 @@ import { ItemComponent } from './components/item/item.component';
 import { BagService } from './services/bag.service';
 import { WelcomeComponent } from './components/welcome/welcome.component';
 import { PageNotFoundComponent } from './components/page-not-found/page-not-found.component';
-import { AuthGuard } from './services/auth-guard.service';
 import { ItemService } from './services/item.service';
 
 @NgModule({
@@ -42,7 +41,6 @@ import { ItemService } from './services/item.service';
   ],
   providers: [
     BagService,
-    AuthGuard,
     ItemService
   ],
   bootstrap: [AppComponent]

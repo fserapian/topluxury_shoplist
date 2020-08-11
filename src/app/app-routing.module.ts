@@ -5,13 +5,12 @@ import { ShoppingBagComponent } from './components/shopping-bag/shopping-bag.com
 import { HomeComponent } from './components/home/home.component';
 import { WelcomeComponent } from './components/welcome/welcome.component';
 import { PageNotFoundComponent } from './components/page-not-found/page-not-found.component';
-import { AuthGuard } from './services/auth-guard.service';
 
 const routes: Routes = [
   { path: '', component: WelcomeComponent },
   { path: 'home', component: HomeComponent },
   { path: 'login', component: LoginComponent },
-  { path: 'shopping-bag', canActivate: [AuthGuard], component: ShoppingBagComponent, data: [{ id: 1, title: 'One' }, { id: 2, title: 'Two' }] },
+  { path: 'shopping-bag', component: ShoppingBagComponent },
   { path: 'not-found', component: PageNotFoundComponent },
   { path: '**', redirectTo: '/not-found' }
 ];

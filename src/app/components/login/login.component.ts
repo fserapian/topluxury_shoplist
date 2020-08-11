@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { NgFlashMessageService } from 'ng-flash-messages';
-import { AuthService } from 'src/app/services/auth.service';
 
 @Component({
   selector: 'app-login',
@@ -9,13 +8,12 @@ import { AuthService } from 'src/app/services/auth.service';
   styleUrls: ['./login.component.css']
 })
 export class LoginComponent implements OnInit {
-  username: string;
-  password: string;
+  username = '';
+  password = '';
 
   constructor(
     private router: Router,
     private flashMessage: NgFlashMessageService,
-    private authService: AuthService
   ) { }
 
   ngOnInit() {
@@ -31,10 +29,10 @@ export class LoginComponent implements OnInit {
         type: 'success'
       });
 
-      this.authService.login();
       this.router.navigate(['/home']);
     } else {
 
+      console.log('Here....');
       this.flashMessage.showFlashMessage({
         messages: ["Cannot login... check username and password"],
         dismissible: true,
