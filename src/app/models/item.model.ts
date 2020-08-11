@@ -1,10 +1,8 @@
-interface Item {
+export interface Item {
     id: string;
     name: string;
     description: string;
     price: number;
     newly?: boolean;
-    imageUrl?: string;
+    imageUrl: string;
 }
-
-export default Item;

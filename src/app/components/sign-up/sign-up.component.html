@@ -1,1 +1,68 @@
-<p>sign-up works!</p>
+<div class="row">
+  <div class="col-md-6 mx-auto">
+    <div class="card p-3">
+      <div class="card-body">
+        <h1 class="mb-3">Sign-Up</h1>
+        <form>
+          <div class="form-group">
+            <label for="name">Name</label>
+            <input
+              type="text"
+              id="name"
+              name="name"
+              class="form-control"
+              placeholder="Enter name"
+              [(ngModel)]="name"
+              required
+            />
+            <!-- <div
+              class="invalid-feedback"
+              *ngIf="username.invalid && username.touched"
+            >
+              Username is required
+            </div> -->
+          </div>
+          <div class="form-group">
+            <label for="email">Email</label>
+            <input
+              type="email"
+              id="email"
+              name="email"
+              class="form-control"
+              placeholder="Enter email"
+              [(ngModel)]="email"
+              required
+            />
+            <!-- <div
+              class="invalid-feedback"
+              *ngIf="password.invalid && password.touched"
+            >
+              Password is required
+            </div> -->
+          </div>
+          <div class="form-group">
+            <label for="password">Password</label>
+            <input
+              type="password"
+              id="password"
+              name="password"
+              class="form-control"
+              placeholder="Enter password"
+              [(ngModel)]="password"
+              required
+            />
+            <!-- <div
+              class="invalid-feedback"
+              *ngIf="password.invalid && password.touched"
+            >
+              Password is required
+            </div> -->
+          </div>
+          <button class="btn btn-block btn-dark mt-4" (click)="onRegister()">
+            Register
+          </button>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
