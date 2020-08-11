@@ -20,6 +20,7 @@ import { BagService } from './services/bag.service';
 import { WelcomeComponent } from './components/welcome/welcome.component';
 import { PageNotFoundComponent } from './components/page-not-found/page-not-found.component';
 import { ItemService } from './services/item.service';
+import { SignUpComponent } from './components/sign-up/sign-up.component';
 
 @NgModule({
   declarations: [
@@ -30,7 +31,8 @@ import { ItemService } from './services/item.service';
     HomeComponent,
     ItemComponent,
     WelcomeComponent,
-    PageNotFoundComponent
+    PageNotFoundComponent,
+    SignUpComponent
   ],
   imports: [
     BrowserModule,

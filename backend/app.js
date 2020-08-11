@@ -14,9 +14,10 @@ app.use((req, res, next) => {
   next();
 });
 
-// app.use(cors());
+app.use(cors());
 
 app.use("/api/v1/items", require("./routes/items"));
+app.use("/api/v1/auth", require("./routes/auth"));
 
 app.use(errorHandler);
 

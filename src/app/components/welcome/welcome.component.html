@@ -1,8 +1,57 @@
 <div class="home-header px-3 pb-md-4 mx-auto">
   <h1 class="display-4">Welcome to the luxury</h1>
   <p class="lead">
-    Topluxury shoplist is lorem ipsum dolor sit amet consectetur, adipisicing
-    elit. Sed ab, consectetur necessitatibus numquam a ullam fugiat magnam eos
-    optio corrupti.
+    Login with us and enjoy the new shopping experience. If you don't have an
+    account please sign-up
   </p>
+</div>
+<div class="row">
+  <div class="col-md-6 mx-auto">
+    <div class="card p-3">
+      <div class="card-body">
+        <h1 class="mb-3">Login Here</h1>
+        <form>
+          <div class="form-group">
+            <label for="username">Username</label>
+            <input
+              type="text"
+              id="username"
+              name="username"
+              class="form-control"
+              placeholder="Enter username"
+              [(ngModel)]="username"
+              required
+            />
+            <!-- <div
+              class="invalid-feedback"
+              *ngIf="username.invalid && username.touched"
+            >
+              Username is required
+            </div> -->
+          </div>
+          <div class="form-group">
+            <label for="password">Password</label>
+            <input
+              type="password"
+              id="password"
+              name="password"
+              class="form-control"
+              placeholder="Enter password"
+              [(ngModel)]="password"
+              required
+            />
+            <!-- <div
+              class="invalid-feedback"
+              *ngIf="password.invalid && password.touched"
+            >
+              Password is required
+            </div> -->
+          </div>
+          <button class="btn btn-block btn-dark mt-4" (click)="onLogin()">
+            Login
+          </button>
+        </form>
+      </div>
+    </div>
+  </div>
 </div>
