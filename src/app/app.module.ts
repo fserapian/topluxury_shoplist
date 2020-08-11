@@ -12,14 +12,14 @@ import { NavbarComponent } from './components/navbar/navbar.component';
 import { LoginComponent } from './components/login/login.component';
 import { ShoppingBagComponent } from './components/shopping-bag/shopping-bag.component';
 import { HomeComponent } from './components/home/home.component';
-import { ProductComponent } from './components/product/product.component';
+import { ItemComponent } from './components/item/item.component';
 
 // Services
-import { ProductService } from './services/product.service';
 import { BagService } from './services/bag.service';
 import { WelcomeComponent } from './components/welcome/welcome.component';
 import { PageNotFoundComponent } from './components/page-not-found/page-not-found.component';
 import { AuthGuard } from './services/auth-guard.service';
+import { ItemService } from './services/item.service';
 
 @NgModule({
   declarations: [
@@ -28,7 +28,7 @@ import { AuthGuard } from './services/auth-guard.service';
     LoginComponent,
     ShoppingBagComponent,
     HomeComponent,
-    ProductComponent,
+    ItemComponent,
     WelcomeComponent,
     PageNotFoundComponent
   ],
@@ -41,10 +41,11 @@ import { AuthGuard } from './services/auth-guard.service';
     NgFlashMessagesModule.forRoot()
   ],
   providers: [
-    ProductService,
     BagService,
-    AuthGuard
+    AuthGuard,
+    ItemService
   ],
   bootstrap: [AppComponent]
 })
+
 export class AppModule { }

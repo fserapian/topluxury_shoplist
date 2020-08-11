@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { ProductService } from 'src/app/services/product.service';
-import { Product } from 'src/app/models/product.model';
+import { ItemService } from 'src/app/services/item.service';
+import Item from 'src/app/models/item.model';
 import { BagService } from 'src/app/services/bag.service';
 
 @Component({
@@ -9,20 +9,20 @@ import { BagService } from 'src/app/services/bag.service';
   styleUrls: ['./home.component.css']
 })
 export class HomeComponent implements OnInit {
-  products: Product[];
-  bag: Product[] = [];
+  items: Item[];
+  bag: Item[] = [];
 
   message = 'Hello from home';
 
   title = '';
 
   constructor(
-    private productService: ProductService,
+    private itemService: ItemService,
     private bagService: BagService
   ) { }
 
   ngOnInit() {
-    this.productService.getProducts().subscribe(products => this.products = products);
+    this.itemService.getItems().subscribe(items => this.items = items);
   }
 
   // sendBag() {
