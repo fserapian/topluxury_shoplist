@@ -11,6 +11,30 @@
   <nav class="my-2 my-md-0 mr-md-3">
     <a class="p-2 active" routerLink="/home">Home</a>
     <a class="p-2" routerLink="/shopping-bag">Shopping Bag</a>
+    <span ngbDropdown class="dropdown">
+      <a
+        class="dropdown-toggle"
+        type="button"
+        id="dropdownMenuButton"
+        data-toggle="dropdown"
+        aria-haspopup="true"
+        aria-expanded="false"
+        ngbDropdownToggle
+      >
+        Dropdown button
+      </a>
+      <div
+        class="dropdown-menu"
+        aria-labelledby="dropdownMenuButton"
+        ngbDropdownMenu
+      >
+        <a class="dropdown-item" href="#" ngbDropdownItem>Action</a>
+        <a class="dropdown-item" href="#" ngbDropdownItem>Another action</a>
+        <a class="dropdown-item" href="#" ngbDropdownItem
+          >Something else here</a
+        >
+      </div>
+    </span>
   </nav>
   <a class="btn btn-outline-primary" routerLink="/login">Login</a>
 </div>

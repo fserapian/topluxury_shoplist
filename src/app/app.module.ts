@@ -5,6 +5,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { NgFlashMessagesModule } from 'ng-flash-messages';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { HttpClientModule } from '@angular/common/http';
+import { NgbDropdownModule } from '@ng-bootstrap/ng-bootstrap';
 
 // Components
 import { AppComponent } from './app.component';
@@ -37,6 +38,7 @@ import { ItemService } from './services/item.service';
     FormsModule,
     FontAwesomeModule,
     HttpClientModule,
+    NgbDropdownModule,
     NgFlashMessagesModule.forRoot()
   ],
   providers: [
