@@ -1,16 +1,16 @@
 import { Injectable } from '@angular/core';
 import { Subject } from 'rxjs';
-import { Product } from '../models/product.model';
+import Item from '../models/item.model';
 
 @Injectable({
   providedIn: 'root'
 })
 export class BagService {
-  bagSubject = new Subject<Product[]>();
+  bagSubject = new Subject<Item[]>();
 
   messageSubject = new Subject();
 
-  transferBag(bag: Product[]) {
+  transferBag(bag: Item[]) {
     this.bagSubject.next(bag);
   }
 

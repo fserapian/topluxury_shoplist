@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { BagService } from 'src/app/services/bag.service';
-import { Product } from 'src/app/models/item.model';
+import Item from 'src/app/models/item.model';
 import { faTimes } from '@fortawesome/free-solid-svg-icons';
 
 @Component({
@@ -11,17 +11,17 @@ import { faTimes } from '@fortawesome/free-solid-svg-icons';
 export class ShoppingBagComponent implements OnInit {
   faTimes = faTimes;
 
-  bag: Product[] = [];
+  bag: Item[] = [];
 
   constructor(private bagService: BagService) { }
 
   ngOnInit() {
     const bag = JSON.parse(localStorage.getItem('bag'));
 
-    bag.forEach((item: Product) => this.bag.push(item));
+    bag.forEach((item: Item) => this.bag.push(item));
   }
 
-  removeItem(item: Product) {
+  removeItem(item: Item) {
     // this.bag.splice(parseInt(item.id), 1);
     console.log(item);
   }

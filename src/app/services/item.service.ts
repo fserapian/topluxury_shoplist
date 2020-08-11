@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import Item from '../models/item.model';
 import { Observable, of } from 'rxjs';
+import { map } from 'rxjs/operators';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 
 @Injectable({
@@ -60,7 +61,8 @@ export class ItemService {
   }
 
   getItems(): Observable<Item[]> {
-    return this.http.get<Item[]>(this.itemUrl);
+    return this.http.get<{ success: boolean, data: Item[] }>(this.itemUrl)
+      .pipe(map(res => res.data));
 
     // return of(this.items);
   }
