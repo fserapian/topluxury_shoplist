@@ -1,4 +1,5 @@
 const express = require("express");
+const errorHandler = require("./middleware/error-handler");
 const connectDB = require("./config/db");
 
 connectDB();
@@ -12,12 +13,8 @@ app.use((req, res, next) => {
   next();
 });
 
-// app.get("/api/v1/items", (req, res) => {
-//   res.json({
-//     msg: "The message",
-//   });
-// });
-
 app.use("/api/v1/items", require("./routes/items"));
+
+app.use(errorHandler);
 
 module.exports = app;
