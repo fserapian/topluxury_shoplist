@@ -35,6 +35,6 @@ exports.getItem = async (req, res, next) => {
       data: item,
     });
   } catch (err) {
-    next(new ErrorResponse(`No item found with id ${req.params.id}`, 404));
+    next(err);
   }
 };
