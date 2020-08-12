@@ -1,6 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { User } from '../../models/user.model';
+import { environment } from 'src/environments/environment';
+import { Router } from '@angular/router';
+import { NgFlashMessageService } from 'ng-flash-messages';
+
 
 @Component({
   selector: 'app-sign-up',
@@ -12,7 +16,11 @@ export class SignUpComponent implements OnInit {
   email = '';
   password = '';
 
-  constructor(private http: HttpClient) { }
+  constructor(
+    private http: HttpClient,
+    private router: Router,
+    private flashMessage: NgFlashMessageService
+  ) { }
 
   ngOnInit() {
   }
@@ -24,8 +32,17 @@ export class SignUpComponent implements OnInit {
       password: this.password
     };
 
-    this.http.post<User>('http://localhost:5000/api/v1/auth/register', user)
+    this.http.post<User>(environment.REGISTER_URL, user)
       .subscribe(res => console.log(res));
+
+    this.flashMessage.showFlashMessage({
+      messages: ["Successfully registered... Welcome to the luxury"],
+      dismissible: true,
+      timeout: 4000,
+      type: 'success'
+    });
+
+    this.router.navigate(['/login']);
   }
 
 }
