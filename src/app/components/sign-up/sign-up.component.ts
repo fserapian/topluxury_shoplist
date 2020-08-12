@@ -42,7 +42,7 @@ export class SignUpComponent implements OnInit {
       type: 'success'
     });
 
-    this.router.navigate(['/login']);
+    this.router.navigate(['/']);
   }
 
 }
