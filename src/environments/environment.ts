@@ -5,6 +5,7 @@
 export const environment = {
   production: false,
   REGISTER_URL: 'http://localhost:5000/api/v1/auth/register',
+  LOGIN_URL: 'http://localhost:5000/api/v1/auth/login',
   ITEMS_URL: 'http://localhost:5000/api/v1/items'
 };
 

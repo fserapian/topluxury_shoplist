@@ -1,6 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { NgFlashMessageService } from 'ng-flash-messages';
+import { HttpClient } from '@angular/common/http';
+import { environment } from 'src/environments/environment';
+import { User } from 'src/app/models/user.model';
 
 @Component({
   selector: 'app-welcome',
@@ -8,10 +11,11 @@ import { NgFlashMessageService } from 'ng-flash-messages';
   styleUrls: ['./welcome.component.css']
 })
 export class WelcomeComponent implements OnInit {
-  username = '';
+  email = '';
   password = '';
 
   constructor(
+    private http: HttpClient,
     private router: Router,
     private flashMessage: NgFlashMessageService
   ) { }
@@ -21,28 +25,22 @@ export class WelcomeComponent implements OnInit {
   }
 
   onLogin() {
-    if (this.username === 'admin' && this.password === 'admin') {
+    const user = {
+      email: this.email,
+      password: this.password
+    };
 
-      this.flashMessage.showFlashMessage({
-        messages: ["Logged In... Welcome"],
-        dismissible: true,
-        timeout: 4000,
-        type: 'success'
-      });
+    this.http.post<User>(environment.LOGIN_URL, user)
+      .subscribe(res => console.log(res));
 
-      this.router.navigate(['/home']);
-    } else {
+    this.flashMessage.showFlashMessage({
+      messages: ["Logged In... Welcome"],
+      dismissible: true,
+      timeout: 4000,
+      type: 'success'
+    });
 
-      console.log('Here....');
-      this.flashMessage.showFlashMessage({
-        messages: ["Cannot login... check username and password"],
-        dismissible: true,
-        timeout: 4000,
-        type: 'danger'
-      });
+    this.router.navigate(['/home']);
 
-      this.router.navigate(['/login']);
-    }
   }
-
 }
