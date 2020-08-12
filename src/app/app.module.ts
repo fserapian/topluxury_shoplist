@@ -10,7 +10,6 @@ import { NgbDropdownModule } from '@ng-bootstrap/ng-bootstrap';
 // Components
 import { AppComponent } from './app.component';
 import { NavbarComponent } from './components/navbar/navbar.component';
-import { LoginComponent } from './components/login/login.component';
 import { ShoppingBagComponent } from './components/shopping-bag/shopping-bag.component';
 import { HomeComponent } from './components/home/home.component';
 import { ItemComponent } from './components/item/item.component';
@@ -26,7 +25,6 @@ import { SignUpComponent } from './components/sign-up/sign-up.component';
   declarations: [
     AppComponent,
     NavbarComponent,
-    LoginComponent,
     ShoppingBagComponent,
     HomeComponent,
     ItemComponent,

@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { BagService } from 'src/app/services/bag.service';
-import Item from 'src/app/models/item.model';
+import { Item } from 'src/app/models/item.model';
 import { faTimes } from '@fortawesome/free-solid-svg-icons';
 
 @Component({
