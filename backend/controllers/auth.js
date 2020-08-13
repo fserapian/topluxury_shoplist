@@ -20,9 +20,11 @@ exports.register = async (req, res, next) => {
       password,
     });
 
+    const token = user.getSignedJwtToken();
+
     res.status(201).json({
       success: true,
-      data: user,
+      token: token,
     });
   } catch (err) {
     next(err);
@@ -43,18 +45,27 @@ exports.login = async (req, res, next) => {
     const { email, password } = req.body;
 
     if (!email || !password) {
-      return new ErrorResponse("Please enter email and password", 400);
+      return next(new ErrorResponse("Please enter email and password", 400));
     }
 
-    const user = await User.findOne({ email: email });
+    const user = await User.findOne({ email: email }).select("+password");
 
     if (!user) {
-      return new ErrorResponse("Invalid credentials", 401);
+      return next(new ErrorResponse("Invalid credentials", 401));
     }
+
+    // Check if passwords match
+    const passwordsMatch = await user.matchPasswords(password);
+
+    if (!passwordsMatch) {
+      return next(new ErrorResponse("Invalid credentials", 401));
+    }
+
+    const token = user.getSignedJwtToken();
 
     res.status(200).json({
       success: true,
-      data: user,
+      token: token,
     });
   } catch (err) {
     next(err);
