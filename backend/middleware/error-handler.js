@@ -15,6 +15,15 @@ const errorHandler = (err, req, res, next) => {
     error = new ErrorResponse(message, 404);
   }
 
+  if (err.code === 11000) {
+    error = new ErrorResponse(`Cannot have duplicates`, 400);
+  }
+
+  if (err.name === "ValidationError") {
+    const messages = Object.values(err.errors).map((e) => e.message);
+    error = new ErrorResponse(messages, 400);
+  }
+
   res.status(error.statusCode || 500).json({
     success: false,
     error: error.message || "Server Error",

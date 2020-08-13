@@ -24,6 +24,7 @@
     "@fortawesome/fontawesome-svg-core": "^1.2.30",
     "@fortawesome/free-solid-svg-icons": "^5.14.0",
     "@ng-bootstrap/ng-bootstrap": "^7.0.0",
+    "bcryptjs": "^2.4.3",
     "bootstrap": "^4.5.2",
     "bootswatch": "^4.5.1",
     "cors": "^2.8.5",
