@@ -4,6 +4,7 @@ import { NgFlashMessageService } from 'ng-flash-messages';
 import { HttpClient } from '@angular/common/http';
 import { environment } from 'src/environments/environment';
 import { User } from 'src/app/models/user.model';
+import { NgForm } from '@angular/forms';
 
 @Component({
   selector: 'app-welcome',
@@ -11,8 +12,6 @@ import { User } from 'src/app/models/user.model';
   styleUrls: ['./welcome.component.css']
 })
 export class WelcomeComponent implements OnInit {
-  email = '';
-  password = '';
 
   constructor(
     private http: HttpClient,
@@ -24,13 +23,9 @@ export class WelcomeComponent implements OnInit {
     console.log('Welcome Component Init');
   }
 
-  onLogin() {
-    const user = {
-      email: this.email,
-      password: this.password
-    };
+  onLogin(form: NgForm) {
 
-    this.http.post<User>(environment.LOGIN_URL, user)
+    this.http.post<User>(environment.LOGIN_URL, form.value)
       .subscribe(res => console.log(res));
 
     this.flashMessage.showFlashMessage({
@@ -41,6 +36,5 @@ export class WelcomeComponent implements OnInit {
     });
 
     this.router.navigate(['/home']);
-
   }
 }
