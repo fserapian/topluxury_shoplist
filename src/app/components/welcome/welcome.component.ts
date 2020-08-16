@@ -12,6 +12,7 @@ import { NgForm } from '@angular/forms';
   styleUrls: ['./welcome.component.css']
 })
 export class WelcomeComponent implements OnInit {
+  onLoginPage = false;
 
   constructor(
     private http: HttpClient,
@@ -21,20 +22,5 @@ export class WelcomeComponent implements OnInit {
 
   ngOnInit() {
     console.log('Welcome Component Init');
-  }
-
-  onLogin(form: NgForm) {
-
-    this.http.post<User>(environment.LOGIN_URL, form.value)
-      .subscribe(res => console.log(res));
-
-    this.flashMessage.showFlashMessage({
-      messages: ["Logged In... Welcome"],
-      dismissible: true,
-      timeout: 4000,
-      type: 'success'
-    });
-
-    this.router.navigate(['/home']);
   }
 }

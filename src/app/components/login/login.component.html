@@ -1,12 +1,9 @@
-<div class="home-header px-3 pb-md-4 mx-auto">
-  <h1 class="display-4">Welcome to the luxury</h1>
-  <p class="lead">
-    Login with us and enjoy the new shopping experience. If you don't have an
-    account please <a routerLink="/sign-up">sign-up</a>
-  </p>
-</div>
-<!-- <div class="row">
+<div class="row">
   <div class="col-md-6 mx-auto">
+    <p *ngIf="onLoginPage">
+      Please enter your credentials to login. Don't have an account?
+      <a routerLink="/sign-up">Sign-up</a>
+    </p>
     <div class="card p-3">
       <div class="card-body">
         <h1 class="mb-3">Login Here</h1>
@@ -63,5 +60,4 @@
       </div>
     </div>
   </div>
-</div> -->
-<app-login [onLoginPage]="onLoginPage"></app-login>
+</div>
