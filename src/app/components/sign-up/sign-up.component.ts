@@ -1,9 +1,11 @@
 import { Component, OnInit } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
 import { User } from '../../models/user.model';
 import { environment } from 'src/environments/environment';
 import { Router } from '@angular/router';
 import { NgFlashMessageService } from 'ng-flash-messages';
+import { AuthService } from 'src/app/services/auth.service';
+import { NgForm } from '@angular/forms';
+import { HttpClient } from '@angular/common/http';
 
 
 @Component({
@@ -12,12 +14,14 @@ import { NgFlashMessageService } from 'ng-flash-messages';
   styleUrls: ['./sign-up.component.css']
 })
 export class SignUpComponent implements OnInit {
-  name = '';
+  firstName = '';
+  lastName = '';
   email = '';
   password = '';
 
   constructor(
     private http: HttpClient,
+    private authService: AuthService,
     private router: Router,
     private flashMessage: NgFlashMessageService
   ) { }
@@ -25,24 +29,26 @@ export class SignUpComponent implements OnInit {
   ngOnInit() {
   }
 
-  onRegister() {
-    const user = {
-      name: this.name,
-      email: this.email,
-      password: this.password
-    };
+  onRegister(form: NgForm) {
+    const { firstName, lastName, email, password } = form.value;
+
+    const user = { name: `${firstName} ${lastName}`, email, password };
+
+    console.log(form.value);
 
     this.http.post<User>(environment.REGISTER_URL, user)
       .subscribe(res => console.log(res));
 
-    this.flashMessage.showFlashMessage({
-      messages: ["Successfully registered... Welcome to the luxury"],
-      dismissible: true,
-      timeout: 4000,
-      type: 'success'
-    });
+    console.log('registered');
 
-    this.router.navigate(['/']);
+    // this.flashMessage.showFlashMessage({
+    //   messages: ["Successfully registered... Welcome to the luxury"],
+    //   dismissible: true,
+    //   timeout: 4000,
+    //   type: 'success'
+    // });
+
+    this.router.navigate(['/home']);
   }
 
 }
