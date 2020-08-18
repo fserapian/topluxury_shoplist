@@ -51,7 +51,7 @@ exports.getItem = async (req, res, next) => {
  */
 exports.updateItem = async (req, res, next) => {
   try {
-    const item = await Item.findById(req.params.id);
+    let item = await Item.findById(req.params.id);
 
     if (!item) {
       return next(
@@ -59,7 +59,7 @@ exports.updateItem = async (req, res, next) => {
       );
     }
 
-    const item = await Item.findByIdAndUpdate(req.params.id, req.body, {
+    item = await Item.findByIdAndUpdate(req.params.id, req.body, {
       new: true,
       runValidators: true,
     });
