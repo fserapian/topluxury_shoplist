@@ -7,13 +7,15 @@ import { PageNotFoundComponent } from './components/page-not-found/page-not-foun
 import { SignUpComponent } from './components/sign-up/sign-up.component';
 import { LoginComponent } from './components/login/login.component';
 import { ManageItemsComponent } from './components/manage-items/manage-items.component';
+import { CreateItemComponent } from './components/create-item/create-item.component';
 
 const routes: Routes = [
   { path: '', component: WelcomeComponent },
   { path: 'home', component: HomeComponent },
   { path: 'login', component: LoginComponent },
   { path: 'sign-up', component: SignUpComponent },
-  { path: 'manage', component: ManageItemsComponent },
+  { path: 'create-item', component: CreateItemComponent },
+  { path: 'manage-items', component: ManageItemsComponent },
   { path: 'shopping-bag', component: ShoppingBagComponent },
   { path: 'not-found', component: PageNotFoundComponent },
   { path: '**', redirectTo: '/not-found' }

@@ -40,6 +40,34 @@ exports.getItem = async (req, res, next) => {
 };
 
 /**
+ * @desc    Create new item
+ * @route   POST /api/v1/items
+ * @access  private
+ *
+ * @param {Object} req
+ * @param {Object} res
+ * @param {Object} next
+ */
+exports.createItem = async (req, res, next) => {
+  try {
+    const item = new Item({
+      name: req.body.name,
+      description: req.body.description,
+      price: req.body.price,
+    });
+
+    item.save();
+
+    res.status(201).json({
+      success: true,
+      data: item,
+    });
+  } catch (err) {
+    next(err);
+  }
+};
+
+/**
  * @desc  Update item
  * @route  PUT /api/v1/items/:id
  * @access  private

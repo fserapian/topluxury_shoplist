@@ -22,6 +22,7 @@ import { ItemService } from './services/item.service';
 import { SignUpComponent } from './components/sign-up/sign-up.component';
 import { LoginComponent } from './components/login/login.component';
 import { ManageItemsComponent } from './components/manage-items/manage-items.component';
+import { CreateItemComponent } from './components/create-item/create-item.component';
 
 @NgModule({
   declarations: [
@@ -34,7 +35,8 @@ import { ManageItemsComponent } from './components/manage-items/manage-items.com
     PageNotFoundComponent,
     SignUpComponent,
     LoginComponent,
-    ManageItemsComponent
+    ManageItemsComponent,
+    CreateItemComponent
   ],
   imports: [
     BrowserModule,
