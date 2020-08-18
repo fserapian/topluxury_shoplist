@@ -1,5 +1,6 @@
 import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import { Item } from 'src/app/models/item.model';
+import { ItemService } from 'src/app/services/item.service';
 
 @Component({
   selector: 'app-item',
@@ -10,7 +11,7 @@ export class ItemComponent implements OnInit {
   @Input() item: Item;
   @Output() addToBagEvent = new EventEmitter();
 
-  constructor() { }
+  constructor(private itemService: ItemService) { }
 
   ngOnInit() {
   }
@@ -18,6 +19,11 @@ export class ItemComponent implements OnInit {
   sendEvent() {
     // console.log('Adding to bag');
     this.addToBagEvent.emit(this.item);
+  }
+
+  onDelete(id: string) {
+    console.log('Deleting', id);
+    this.itemService.deleteItem(id);
   }
 
 }

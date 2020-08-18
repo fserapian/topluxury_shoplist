@@ -11,10 +11,6 @@ const {
 } = require("../controllers/items");
 
 router.route("/").get(getItems);
-router
-  .route("/:id")
-  .get(getItem)
-  .put(protect, updateItem)
-  .delete(protect, deleteItem);
+router.route("/:id").get(getItem).put(protect, updateItem).delete(deleteItem);
 
 module.exports = router;
