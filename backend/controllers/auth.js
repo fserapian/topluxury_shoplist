@@ -20,11 +20,9 @@ exports.register = async (req, res, next) => {
       password,
     });
 
-    const token = user.getSignedJwtToken();
-
     res.status(201).json({
       success: true,
-      token: token,
+      data: user,
     });
   } catch (err) {
     next(err);

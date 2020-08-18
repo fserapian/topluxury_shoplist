@@ -14,10 +14,6 @@ import { HttpClient } from '@angular/common/http';
   styleUrls: ['./sign-up.component.css']
 })
 export class SignUpComponent implements OnInit {
-  firstName = '';
-  lastName = '';
-  email = '';
-  password = '';
 
   constructor(
     private http: HttpClient,
@@ -32,23 +28,25 @@ export class SignUpComponent implements OnInit {
   onRegister(form: NgForm) {
     const { firstName, lastName, email, password } = form.value;
 
-    const user = { name: `${firstName} ${lastName}`, email, password };
+    this.authService.register(`${firstName} ${lastName}`, email, password);
 
-    console.log(form.value);
+    // const user = { name: `${firstName} ${lastName}`, email, password };
 
-    this.http.post<User>(environment.REGISTER_URL, user)
-      .subscribe(res => console.log(res));
+    // console.log(form.value);
 
-    console.log('registered');
+    // this.http.post<User>(environment.REGISTER_URL, user)
+    //   .subscribe(res => console.log(res));
 
-    // this.flashMessage.showFlashMessage({
-    //   messages: ["Successfully registered... Welcome to the luxury"],
-    //   dismissible: true,
-    //   timeout: 4000,
-    //   type: 'success'
-    // });
+    // console.log('registered');
 
-    this.router.navigate(['/home']);
+    // // this.flashMessage.showFlashMessage({
+    // //   messages: ["Successfully registered... Welcome to the luxury"],
+    // //   dismissible: true,
+    // //   timeout: 4000,
+    // //   type: 'success'
+    // // });
+
+    // this.router.navigate(['/home']);
   }
 
 }

@@ -10,9 +10,9 @@ export class AuthService {
 
   constructor(private http: HttpClient) { }
 
-  register(user: User) {
+  register(name: string, email: string, password: string) {
+    const user: User = { name, email, password };
     this.http.post<User>(environment.REGISTER_URL, user)
       .subscribe(res => console.log(res));
-
   }
 }
