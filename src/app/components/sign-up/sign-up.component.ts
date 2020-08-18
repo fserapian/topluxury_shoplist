@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { User } from '../../models/user.model';
 import { environment } from 'src/environments/environment';
 import { Router } from '@angular/router';
 import { NgFlashMessageService } from 'ng-flash-messages';
