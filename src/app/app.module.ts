@@ -21,6 +21,7 @@ import { PageNotFoundComponent } from './components/page-not-found/page-not-foun
 import { ItemService } from './services/item.service';
 import { SignUpComponent } from './components/sign-up/sign-up.component';
 import { LoginComponent } from './components/login/login.component';
+import { ManageItemsComponent } from './components/manage-items/manage-items.component';
 
 @NgModule({
   declarations: [
@@ -32,7 +33,8 @@ import { LoginComponent } from './components/login/login.component';
     WelcomeComponent,
     PageNotFoundComponent,
     SignUpComponent,
-    LoginComponent
+    LoginComponent,
+    ManageItemsComponent
   ],
   imports: [
     BrowserModule,
