@@ -20,6 +20,14 @@ export class ItemService {
       .pipe(map(res => res.data));
   }
 
+  createItem(name: string, description: string, price: number) {
+    const item: Item = { name, description, price };
+    this.http.post(environment.ITEMS_URL, item)
+      .subscribe(res => {
+        console.log(res);
+      });
+  }
+
   deleteItem(itemId: string) {
     this.http.delete(environment.ITEMS_URL + '/' + itemId)
       .subscribe(res => {
