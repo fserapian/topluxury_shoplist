@@ -9,9 +9,6 @@ import { ItemService } from 'src/app/services/item.service';
   styleUrls: ['./create-item.component.css']
 })
 export class CreateItemComponent implements OnInit {
-  name = '';
-  description = '';
-  price = 0;
 
   @Output() itemCreated = new EventEmitter<Item>();
 
@@ -21,7 +18,9 @@ export class CreateItemComponent implements OnInit {
   }
 
   onCreate(form: NgForm) {
-    console.log(form.value);
+    if (form.invalid) {
+      return;
+    }
     const { name, description, price } = form.value;
     this.itemService.createItem(name, description, price);
   }
